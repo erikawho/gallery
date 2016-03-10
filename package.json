@@ -3,9 +3,19 @@
   "version": "1.0.0",
   "description": "Photo gallery app",
   "main": "server.js",
-  "directories": {
-    "test": "test"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikawho/gallery.git"
+  },
+  "author": "Erika Hokanson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erikawho/gallery/issues"
+  },
+  "homepage": "https://github.com/erikawho/gallery#readme",
   "devDependencies": {
     "angular": "^1.5.0",
     "angular-mocks": "^1.5.0",
@@ -25,12 +35,5 @@
   },
   "dependencies": {
     "express": "^4.13.4"
-  },
-  "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT"
+  }
 }
