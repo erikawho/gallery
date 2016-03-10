@@ -1,7 +1,6 @@
 'use strict';
 
 const gulp = require('gulp');
-const eslint = require('gulp-eslint');
 const sass = require('gulp-sass');
 const maps = require('gulp-sourcemaps');
 const minifyCss = require('gulp-minify-css');
@@ -33,32 +32,38 @@ gulp.task('css:dev', () => {
     .pipe(gulp.dest(__dirname + '/build'));
 });
 
+gulp.task('images:dev', () => {
+  gulp.src(__dirname + '/app/images/**/*')
+    .pipe(gulp.dest(__dirname + '/build/images'));
+});
+
 gulp.task('webpack:dev', () => {
-  gulp.src(__dirname + '/app/js/*.js')
+  gulp.src('./app/js/client.js')
     .pipe(webpack({
       output: {
         filename: 'bundle.js'
       }
     }))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest(__dirname + '/build'));
 });
 
 gulp.task('webpack:test', () => {
   gulp.src(__dirname + '/test/test_entry.js')
     .pipe(webpack({
+      module: {
+        loaders: [
+          {
+            test: /\.html$/,
+            loader: 'html'
+          }
+        ]
+      },
       output: {
         filename: 'test_bundle.js'
       }
     }))
     .pipe(gulp.dest('test/'));
-});
+  });
 
-gulp.task('lint', () => {
-  return gulp.src(__dirname + '/app/js/*.js')
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-});
-
-gulp.task('build:dev', ['webpack:dev', 'html:dev', 'css:dev', 'sass:dev']);
-gulp.task('default', ['build:dev', 'sass:dev', 'lint']);
+gulp.task('build:dev', ['webpack:dev', 'html:dev', 'css:dev', 'sass:dev', 'images:dev']);
+gulp.task('default', ['build:dev', 'sass:dev']);
