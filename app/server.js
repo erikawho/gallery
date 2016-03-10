@@ -6,5 +6,6 @@ module.exports = exports = function(port) {
 
   return app.listen(port, () => {
     console.log('Client server up on party port: ' + port);
+    // PORT 5000
   });
 };

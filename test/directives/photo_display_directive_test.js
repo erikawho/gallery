@@ -1,22 +1,22 @@
 const angular = require('angular');
-const templateUrl = '/templates/image_display_directive.html';
-const template = require(__dirname + '/../../../app/templates/image_display_directive.html');
+const templateUrl = '/templates/photo_display_directive.html';
+const template = require(__dirname + '/../app/templates/photo_display_directive.html');
 
-describe('Image display directive', () => {
+describe('Photo display directive', () => {
   var $compile, $rootScope, $httpBackend;
 
-  beforeEach(angular.mock.module('imgrrApp'));
+  beforeEach(angular.mock.module('galleryApp'));
   beforeEach(angular.mock.inject(function(_$compile_, _$rootScope_, _$httpBackend_) {
     $compile = _$compile_;
     $rootScope = _$rootScope_;
     $httpBackend = _$httpBackend_;
   }));
 
-  it('should be able to load and render data', () => {
+  it('should load the form', () => {
     $httpBackend.whenGET(templateUrl)
       .respond(200, template);
 
-    var element = $compile('<image-display data-image-data="{caption:\'test caption\'}"></image-display>')($rootScope);
+    var element = $compile('<photo-display data-photo-data="{ caption:\'test caption\' }"></photo-display>')($rootScope);
 
     $httpBackend.flush();
     $rootScope.$digest();
@@ -24,13 +24,13 @@ describe('Image display directive', () => {
     expect(element.html()).toContain('test caption');
   });
 
-  it('should able to load and render from scope', () => {
+  it('should be able to submit the form', () => {
     var testScope = $rootScope.$new();
     $httpBackend.whenGET(templateUrl)
       .respond(200, template);
 
-    testScope.testImage = { caption: 'from scope' };
-    var element = $compile('<image-display data-image-data=testImage></image-display>')(testScope);
+    testScope.testPhoto = { caption: 'from scope' };
+    var element = $compile('<photo-display data-photo-data=testPhoto></photo-display>')(testScope);
 
     $httpBackend.flush();
     $rootScope.$digest();
