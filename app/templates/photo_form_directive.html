@@ -1,0 +1,10 @@
+<form data-ng-submit="formSubmit(newPhoto)" class="photo-form">
+  <fieldset>
+    <p>Submit a puppy photo! For your health!</p>
+    <label for="photo-url">Photo URL:</label>
+    <input data-ng-model="newPhoto.url" type="url" name="photo-url" placeholder="Photo URL">
+    <label for="photo-caption">Caption:</label>
+    <input data-ng-model="newPhoto.caption" type="text" name="photo-caption" placeholder="Caption">
+    <button type="submit" name="submit">Submit</button>
+  </fieldset>
+</form>
