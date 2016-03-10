@@ -4,12 +4,10 @@ const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const sass = require('gulp-sass');
 const maps = require('gulp-sourcemaps');
-const minifycss = require('gulp-minify-css');
+const minifyCss = require('gulp-minify-css');
 const webpack = require('webpack-stream');
 const babel = require('babel-loader');
 const html = require('html-loader');
-
-// const scripts = ['**/.js', '!node_modules/**'];
 
 gulp.task('test', () => {
   return gulp.src('test/*.js')

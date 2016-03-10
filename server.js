@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/gallery_app_dev');
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     next();
@@ -16,4 +16,4 @@ app.use('/api', photoRouter);
 app.use(express.static(__dirname + '/build'));
 
 var PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log('server up on port: ' + PORT));
+app.listen(PORT, () => console.log('Backend server up on party port: ' + PORT));

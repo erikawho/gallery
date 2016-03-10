@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="sass/styles.scss">
+	<title>Precious Puppies of the Internetz</title>
+</head>
+
+<body data-ng-app="galleryApp" data-ng-controller='indexController' data-ng-init="loadAll()">
+
+<nav class="nav">
+		<ul>
+			<li class><a href="#"><span>Home</span></a></li>
+			<li class><a href="#"><span>About</span></a></li>
+			<li class><a href="#"><span>Contact</span></a></li>
+		</ul>
+</nav>
+
+<div class="header">
+	<header>
+		<p>Submit photos of the cutest puppies ever, for all the world to 'awwww' at!</p>
+</header>
+
+<h1 class="title">Precious Puppies of the Internetz</h1>
+
+<main>
+
+<section class="pics">
+	<photo-form
+		data-new-photo="newPhoto"
+		data-form-submit="postNew(newPhoto)"
+	></photo-form>
+</section>
+
+<section class="galleria">
+	<photo-display
+	data-ng-repeat="photo in photos"
+	data-photo-data="photo"
+	></photo-display>
+</section>
+
+
+</main>
+
+<footer>
+	<section class="footer">
+		<p>Copyright 2016 Precious Puppies</p>
+	</section>
+</footer>
+
+  <script src="bundle.js"></script>
+</body>
+</html>

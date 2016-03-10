@@ -5,6 +5,6 @@ module.exports = exports = function(port) {
   app.use('/', express.static(__dirname + '/../build'));
 
   return app.listen(port, () => {
-    console.log('Client server running on port: ' + port);
+    console.log('Client server up on party port: ' + port);
   });
 };

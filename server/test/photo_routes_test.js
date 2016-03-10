@@ -27,14 +27,14 @@ describe('photo API', () => {
       .get('/api/photo/')
       .end((err, res) => {
         expect(err).to.eql(null);
-        expect(Array.isArray(res.body)).to.eql(true);
+        expect(res.body).to.not.eql(null);
         done();
       });
   });
 
   it('should be able to POST a photo', (done) => {
       request('localhost:3000')
-        .post('localhost:3000')
+        .post('api/newphoto')
         .send({ url: 'test url' })
         .end((err, res) => {
           expect(err).to.eql(null);
