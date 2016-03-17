@@ -1,7 +1,7 @@
 module.exports = function(app) {
   app.factory('PhotoService', ['$http', function($http) {
     return {
-      baseUrl: 'http://localhost:5000/api/photo',
+      baseUrl: 'http://localhost:3000/photo',
       get: function() {
         return $http.get(this.baseUrl);
       },

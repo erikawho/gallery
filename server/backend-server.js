@@ -10,9 +10,9 @@ app.use((req, res, next) => {
     next();
   });
 
-const photoRouter = require(__dirname + '/../routes/photo_routes');
+const photoRouter = require(__dirname + '/routes/photo_routes');
 
-app.use('/api', photoRouter);
+app.use('/', photoRouter);
 // app.use(express.static(__dirname + '/build'));
 
 var PORT = process.env.PORT || 3000;

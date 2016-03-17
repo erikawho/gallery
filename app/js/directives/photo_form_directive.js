@@ -1,7 +1,7 @@
 module.exports = function(app) {
   app.directive('photoForm', function() {
     return {
-      restrict: 'EAC',
+      restrict: 'EA',
       replace: true,
       templateUrl: '/templates/photo_form_directive.html',
       scope: {

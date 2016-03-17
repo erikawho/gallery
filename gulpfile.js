@@ -33,8 +33,8 @@ gulp.task('css:dev', () => {
 });
 
 gulp.task('images:dev', () => {
-  gulp.src(__dirname + '/app/images/**/*')
-    .pipe(gulp.dest(__dirname + '/build/images'));
+  gulp.src(__dirname + '/app/img/**/*')
+    .pipe(gulp.dest(__dirname + '/build/img'));
 });
 
 gulp.task('webpack:dev', () => {
