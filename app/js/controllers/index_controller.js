@@ -1,12 +1,12 @@
 module.exports = function(app) {
   app.controller('IndexController', ['$scope', 'PhotoService', function($scope, PhotoService) {
-    $scope.photo = [];
+    $scope.photos = [];
     $scope.newPhoto = null;
 
     $scope.loadAll = function() {
       PhotoService.get()
         .then(function(res) {
-          $scope.photo = res.data;
+          $scope.photos = res.data;
         }, function(err) {
           console.log('Error loading the photos');
         });
@@ -15,7 +15,7 @@ module.exports = function(app) {
     $scope.postNew = function(postData) {
       PhotoService.post(postData)
         .then(function(res) {
-          $scope.photo.push(res.data);
+          $scope.photos.push(res.data);
           $scope.newPhoto = null;
         }, function(err) {
           console.log('Error posting the photo');

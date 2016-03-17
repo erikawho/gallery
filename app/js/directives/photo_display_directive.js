@@ -5,7 +5,7 @@ module.exports = function(app) {
       replace: true,
       templateUrl: '/templates/photo_display_directive.html',
       scope: {
-        imageData: '='
+        photoData: '='
       },
       controller: function($scope) {
         $scope.photoData = $scope.photoData;
